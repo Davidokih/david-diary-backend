@@ -5,7 +5,7 @@ const port = 1010;
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const url = 'mongodb://localhost/DiaryApp';
+const url = process.env.URL;
 
 mongoose.connect(url).then(() => {
     console.log('connected to database');
