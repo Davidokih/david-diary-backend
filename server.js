@@ -16,7 +16,11 @@ mongoose.connect(url).then(() => {
 app.use(cors());
 app.use(express.json());
 
-app.get('/',);
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Welcome to the Diary App'
+    });
+});
 app.use('/api', require('./router/router'));
 app.use('/api', require('./OtherContoller/SignUpUser'));
 app.use('/api', require('./router/uploadrouter'));
