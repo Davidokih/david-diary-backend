@@ -38,6 +38,7 @@ const signInUser = async (req, res) => {
             status: 404,
             message: error.message
         });
+        console.log(error);
     }
 };
 const getAllUser = async (req, res) => {

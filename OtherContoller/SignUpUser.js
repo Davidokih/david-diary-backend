@@ -3,7 +3,7 @@ const userModel = require('../Model/UserModel');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const cloudinary = require('../config/cloudinary');
-const { upload } = require('../config/multer');
+const upload = require('../config/multer');
 
 router.post("/register", upload, async (req, res) => {
     try {

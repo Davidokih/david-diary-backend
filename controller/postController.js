@@ -9,10 +9,12 @@ const uploadCon = async (req, res) => {
         const { title, content } = req.body;
 
         const getUser = await userModel.findById(req.params.userid);
+        const image = await cloudinary.uploader.upload(req.file.path);
         const createItems = new postModel({
             title,
             content,
-            image: req.file.path
+            avatar: image.secure_url,
+            avatarID: image.public_id,
         });
 
         createItems.user = getUser;
@@ -74,8 +76,8 @@ const updatePost = async (req, res) => {
         const update = await userModel.findByIdAndUpdate(req.params.userid, {
             title,
             content,
-            image: myImage.secure_url,
-            image: myImage.public_id
+            avatar: myImage.secure_url,
+            avatarID: myImage.public_id
         }, { new: true });
 
         res.status(200).json({

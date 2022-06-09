@@ -9,10 +9,10 @@ const postSchema = mongoose.Schema({
     content: {
         type: String
     },
-    image: {
+    avatar: {
         type: String
     },
-    imageID: {
+    avatarID: {
         type: String
     },
     user: {
